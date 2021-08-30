@@ -10,11 +10,11 @@ import Vision
 struct DetectedObjectModel {
     let label: String
     let boundingBox: CGRect
-    let confidence: Double
+    let confidence: Float
     
     init(object: VNRecognizedObjectObservation) {
         self.label = object.label
-        self.confidence = Double(object.confidence)
+        self.confidence = object.confidence
         self.boundingBox = object.boundingBox
     }
 }

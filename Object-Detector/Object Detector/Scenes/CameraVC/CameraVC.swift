@@ -10,7 +10,7 @@ import AVFoundation
 import RxSwift
 import RxCocoa
 
-class CameraVC: BaseViewController {
+class CameraVC: RxBaseViewController<CameraVM> {
     // MARK: - IBOutlets
     @IBOutlet weak var vDrawing: DrawingView!
     @IBOutlet weak var vPreview: UIView!
@@ -20,23 +20,19 @@ class CameraVC: BaseViewController {
     private var cameraSetupSuccess: Bool = false
     private var isInference = false
     
-    private var objectDetector = CoreMLObjectDetector()
-    private let pixelBufferRelay = BehaviorRelay<CVPixelBuffer?>(value: nil)
-    private let detectedObjectsRelay = BehaviorRelay<[DetectedObjectModel]>(value: [])
+    private let pixelBufferSubject = PublishSubject<CVPixelBuffer>()
     
     // MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
         setUpCamera()
-        bindingUI()
+        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-        // Prevents the app from going to sleep
-        UIApplication.shared.isIdleTimerDisabled = true
         checkCameraAuthStatus()
         if cameraSetupSuccess {
             videoCapture.start()
@@ -58,6 +54,19 @@ class CameraVC: BaseViewController {
     }
     
     // MARK: - Private functions
+    private func bindViewModel() {
+        let input = Input(pixelBuffer: pixelBufferSubject)
+        let output = viewModel.transform(input: input)
+        
+        // Detected objects
+        output.detectedObjects
+            .drive(with: self, onNext: { viewController, objects in
+                viewController.vDrawing.predictedObjects = objects
+                viewController.isInference = false
+            })
+            .disposed(by: disposeBag)
+    }
+    
     private func setUpUI() {
         title = "Camera"
     }
@@ -84,36 +93,11 @@ class CameraVC: BaseViewController {
         }
     }
     
-    private func bindingUI() {
-        // pixelBuffer captured
-        pixelBufferRelay
-            .unwrap()
-            .observe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-            .withUnretained(self)
-            .flatMapLatest { viewController, pixelBuffer in
-                viewController.objectDetector
-                    .detectObjects(in: pixelBuffer)
-                    .asObservable()
-                    .catchErrorJustComplete()
-            }
-            .bind(to: detectedObjectsRelay)
-            .disposed(by: disposeBag)
-        
-        // Detected objects
-        detectedObjectsRelay
-            .asDriverOnErrorJustComplete()
-            .drive(with: self, onNext: { viewController, objects in
-                viewController.vDrawing.predictedObjects = objects
-                viewController.isInference = false
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    func resizePreviewLayer() {
+    private func resizePreviewLayer() {
         videoCapture.previewLayer?.frame = vPreview.bounds
     }
     
-    func checkCameraAuthStatus() {
+    private func checkCameraAuthStatus() {
         if AVCaptureDevice.authorizationStatus(for: .video) !=  .authorized {
             AVCaptureDevice.requestAccess(for: .video, completionHandler: { [weak self] (granted) in
                 guard let self = self else { return }
@@ -138,7 +122,7 @@ extension CameraVC: VideoCaptureDelegate {
         // the captured image from camera is contained on pixelBuffer
         if !isInference, let pixelBuffer = pixelBuffer {
             isInference = true
-            pixelBufferRelay.accept(pixelBuffer)
+            pixelBufferSubject.onNext(pixelBuffer)
         }
     }
 }

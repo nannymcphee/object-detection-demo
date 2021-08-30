@@ -41,7 +41,8 @@ class CoreMLObjectDetector {
                 }
                 
                 if let result = request.results as? [VNRecognizedObjectObservation] {
-                    single(.success(result.map { DetectedObjectModel(object: $0) } ))
+                    let detectedObjects = result.map { DetectedObjectModel(object: $0) }
+                    single(.success(detectedObjects))
                 }
             })
             
@@ -64,7 +65,8 @@ class CoreMLObjectDetector {
                 }
                 
                 if let result = request.results as? [VNRecognizedObjectObservation] {
-                    single(.success(result.map { DetectedObjectModel(object: $0) } ))
+                    let detectedObjects = result.map { DetectedObjectModel(object: $0) }
+                    single(.success(detectedObjects))
                 }
             })
             request.imageCropAndScaleOption = .scaleFill

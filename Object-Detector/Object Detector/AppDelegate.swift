@@ -18,12 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         initRootVC()
-        
+        // Prevents the app from going to sleep
+        UIApplication.shared.isIdleTimerDisabled = true
         return true
     }
     
     private func initRootVC() {
-        rootViewController = HomeVC()
+        rootViewController = HomeVC(viewModel: HomeVM())
         navigationController = SwipeBackNavigationController(rootViewController: rootViewController!)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController

@@ -8,9 +8,7 @@
 import RxSwift
 import RxSwiftExt
 
-class BaseViewController: UIViewController {
-    public let disposeBag = DisposeBag()
-    
+class BaseViewController: UIViewController {    
     public var isSwipeBackEnabled: Bool = false {
         didSet {
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = isSwipeBackEnabled

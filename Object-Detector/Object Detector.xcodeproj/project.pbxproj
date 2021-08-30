@@ -39,6 +39,11 @@
 		E1D991D726D0B58B0080CBF2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D991D626D0B58B0080CBF2 /* Logger.swift */; };
 		E1D991D926D0B6B30080CBF2 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D991D826D0B6B30080CBF2 /* Date+Ext.swift */; };
 		E1D991DD26D0CE5D0080CBF2 /* CoreMLObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D991DC26D0CE5D0080CBF2 /* CoreMLObjectDetector.swift */; };
+		E1F1004B26DCCBA10051987B /* RxBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1004A26DCCBA10051987B /* RxBaseViewController.swift */; };
+		E1F1004D26DCCBC70051987B /* ViewModelTransformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1004C26DCCBC70051987B /* ViewModelTransformable.swift */; };
+		E1F1004F26DCCC200051987B /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1004E26DCCC200051987B /* BaseVM.swift */; };
+		E1F1005126DCD6110051987B /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1005026DCD6100051987B /* HomeVM.swift */; };
+		E1F1005326DCD8640051987B /* CameraVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1005226DCD8640051987B /* CameraVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +83,11 @@
 		E1D991D626D0B58B0080CBF2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E1D991D826D0B6B30080CBF2 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		E1D991DC26D0CE5D0080CBF2 /* CoreMLObjectDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLObjectDetector.swift; sourceTree = "<group>"; };
+		E1F1004A26DCCBA10051987B /* RxBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBaseViewController.swift; sourceTree = "<group>"; };
+		E1F1004C26DCCBC70051987B /* ViewModelTransformable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTransformable.swift; sourceTree = "<group>"; };
+		E1F1004E26DCCC200051987B /* BaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
+		E1F1005026DCD6100051987B /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		E1F1005226DCD8640051987B /* CameraVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +148,7 @@
 		E1D9919726D0902C0080CBF2 /* Object Detector */ = {
 			isa = PBXGroup;
 			children = (
+				E1F1004926DCCB980051987B /* Base */,
 				E1A4E86826D1869A00CFD898 /* Models */,
 				E1D991B226D094510080CBF2 /* Extensions */,
 				E1D991B126D094480080CBF2 /* Utils */,
@@ -168,6 +179,7 @@
 			children = (
 				E1D991B326D094A80080CBF2 /* HomeVC.swift */,
 				E1D991B426D094A80080CBF2 /* HomeVC.xib */,
+				E1F1005026DCD6100051987B /* HomeVM.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -177,6 +189,7 @@
 			children = (
 				E1D991B726D094B70080CBF2 /* CameraVC.swift */,
 				E1D991B826D094B70080CBF2 /* CameraVC.xib */,
+				E1F1005226DCD8640051987B /* CameraVM.swift */,
 			);
 			path = CameraVC;
 			sourceTree = "<group>";
@@ -228,6 +241,16 @@
 				E1D991DC26D0CE5D0080CBF2 /* CoreMLObjectDetector.swift */,
 			);
 			path = ObjectDetector;
+			sourceTree = "<group>";
+		};
+		E1F1004926DCCB980051987B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E1F1004A26DCCBA10051987B /* RxBaseViewController.swift */,
+				E1F1004C26DCCBC70051987B /* ViewModelTransformable.swift */,
+				E1F1004E26DCCC200051987B /* BaseVM.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,16 +371,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1D991B526D094A80080CBF2 /* HomeVC.swift in Sources */,
+				E1F1004B26DCCBA10051987B /* RxBaseViewController.swift in Sources */,
 				E1D9919D26D0902C0080CBF2 /* ViewController.swift in Sources */,
 				E1D991D526D0B2D00080CBF2 /* DNObjectDetector.swift in Sources */,
 				E1D991BC26D0958F0080CBF2 /* DrawingView.swift in Sources */,
+				E1F1004D26DCCBC70051987B /* ViewModelTransformable.swift in Sources */,
 				E1D991CD26D09D0A0080CBF2 /* ActivityIndicator.swift in Sources */,
+				E1F1005326DCD8640051987B /* CameraVM.swift in Sources */,
 				E1D991DD26D0CE5D0080CBF2 /* CoreMLObjectDetector.swift in Sources */,
 				E1D991C026D0978B0080CBF2 /* UIView+Ext.swift in Sources */,
 				E199B86326D0D243005ECC9A /* UIImagePickerController+RxCreate.swift in Sources */,
 				E1A4E86A26D186A700CFD898 /* DetectedObjectModel.swift in Sources */,
 				E1D991D326D0ADBB0080CBF2 /* VideoProcessor.swift in Sources */,
 				E1D991CB26D09CD40080CBF2 /* LoadingView.swift in Sources */,
+				E1F1004F26DCCC200051987B /* BaseVM.swift in Sources */,
 				E1D991D926D0B6B30080CBF2 /* Date+Ext.swift in Sources */,
 				E1D991D126D0ACBB0080CBF2 /* Sequence+Ext.swift in Sources */,
 				E1D991C726D099A40080CBF2 /* BaseViewController.swift in Sources */,
@@ -370,6 +397,7 @@
 				E1D991CF26D09E850080CBF2 /* Optional+Ext.swift in Sources */,
 				E199B87326D0F5E5005ECC9A /* SwipeBackNavigationController.swift in Sources */,
 				E199B87726D0F749005ECC9A /* YOLOv3Int8LUT.mlmodel in Sources */,
+				E1F1005126DCD6110051987B /* HomeVM.swift in Sources */,
 				E1D991B926D094B70080CBF2 /* CameraVC.swift in Sources */,
 				E1D991C526D0991D0080CBF2 /* RxMediaPickerDelegate.swift in Sources */,
 			);
