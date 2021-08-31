@@ -103,6 +103,6 @@ private extension CoreMLObjectDetector {
 
 extension VNRecognizedObjectObservation {
     var label: String {
-        return self.labels.first?.identifier ?? ""
+        return (self.labels.first?.identifier).orEmpty
     }
 }

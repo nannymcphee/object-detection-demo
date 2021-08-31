@@ -11,7 +11,5 @@ target 'Object Detector' do
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
   pod 'RxSwiftExt', '~> 6'
-  pod 'Firebase/MLVision', '6.25.0'
-  pod 'Firebase/MLVisionObjectDetection', '6.25.0'
-
+  pod 'GoogleMLKit/ObjectDetection', '2.3.0'
 end

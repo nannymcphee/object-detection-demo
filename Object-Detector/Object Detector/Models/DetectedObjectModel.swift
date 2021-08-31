@@ -6,6 +6,7 @@
 //
 
 import Vision
+import MLKitObjectDetection
 
 struct DetectedObjectModel {
     let label: String
@@ -16,5 +17,11 @@ struct DetectedObjectModel {
         self.label = object.label
         self.confidence = object.confidence
         self.boundingBox = object.boundingBox
+    }
+    
+    init(object: Object) {
+        self.label = object.label
+        self.boundingBox = object.frame
+        self.confidence = object.labels.first?.confidence ?? 0
     }
 }

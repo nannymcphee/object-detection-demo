@@ -19,7 +19,6 @@
 		E1D991A026D0902C0080CBF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D9919E26D0902C0080CBF2 /* Main.storyboard */; };
 		E1D991A226D0902D0080CBF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D991A126D0902D0080CBF2 /* Assets.xcassets */; };
 		E1D991A526D0902D0080CBF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D991A326D0902D0080CBF2 /* LaunchScreen.storyboard */; };
-		E1D991AD26D0933E0080CBF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D991AC26D0933E0080CBF2 /* GoogleService-Info.plist */; };
 		E1D991B526D094A80080CBF2 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D991B326D094A80080CBF2 /* HomeVC.swift */; };
 		E1D991B626D094A80080CBF2 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D991B426D094A80080CBF2 /* HomeVC.xib */; };
 		E1D991B926D094B70080CBF2 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D991B726D094B70080CBF2 /* CameraVC.swift */; };
@@ -63,7 +62,6 @@
 		E1D991A126D0902D0080CBF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D991A426D0902D0080CBF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1D991A626D0902D0080CBF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1D991AC26D0933E0080CBF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1D991B326D094A80080CBF2 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E1D991B426D094A80080CBF2 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		E1D991B726D094B70080CBF2 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				E1D991A126D0902D0080CBF2 /* Assets.xcassets */,
 				E1D991A326D0902D0080CBF2 /* LaunchScreen.storyboard */,
 				E1D991A626D0902D0080CBF2 /* Info.plist */,
-				E1D991AC26D0933E0080CBF2 /* GoogleService-Info.plist */,
 				E199B87626D0F748005ECC9A /* YOLOv3Int8LUT.mlmodel */,
 			);
 			path = "Object Detector";
@@ -265,6 +262,7 @@
 				E1D9919226D0902C0080CBF2 /* Frameworks */,
 				E1D9919326D0902C0080CBF2 /* Resources */,
 				041512BE36ADA12CD0D907C2 /* [CP] Embed Pods Frameworks */,
+				B913B1B3797BEABA193A0CF0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -314,7 +312,6 @@
 			files = (
 				E1D991A526D0902D0080CBF2 /* LaunchScreen.storyboard in Resources */,
 				E1D991BA26D094B70080CBF2 /* CameraVC.xib in Resources */,
-				E1D991AD26D0933E0080CBF2 /* GoogleService-Info.plist in Resources */,
 				E1D991B626D094A80080CBF2 /* HomeVC.xib in Resources */,
 				E1D991A226D0902D0080CBF2 /* Assets.xcassets in Resources */,
 				E1D991A026D0902C0080CBF2 /* Main.storyboard in Resources */,
@@ -361,6 +358,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B913B1B3797BEABA193A0CF0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Object Detector/Pods-Object Detector-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Object Detector/Pods-Object Detector-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Object Detector/Pods-Object Detector-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
